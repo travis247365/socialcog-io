@@ -328,4 +328,4 @@ sessions/
 # Local development files
 local.json
 dev-config.json
-test-config.json
+test-config.json.env
