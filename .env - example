@@ -1,0 +1,45 @@
+# SocialCog.io Twitter API Configuration
+# SECURITY WARNING: Never commit this file to version control
+# Add .env to your .gitignore file
+
+# Twitter API Credentials
+TWITTER_API_KEY=***REDACTED_BY_SCRIPT***
+TWITTER_API_KEY SECRET=***REDACTED_BY_SCRIPT***
+
+Authentication Tokens 
+TWITTER_BEARER_TOKEN=AAAAAAAAAAAAAAAAAAAAAFLu3gEAAAAAUCthpDxIMtkn4BGwq6TT6H8rvjM%3D2IznbuR0GBefSuqPNV4DSt4zvUA9iUrpW3ue3JzalVhfag6SAL
+TWITTER_ACCESS_TOKEN=18769910-2RJuW7rBsLpmGqLgiuLkRECNa9UYUXlkbPpXzz50N
+TWITTER_ACCESS_TOKEN_SECRET=FJRB46LftHv7oFKXTm7Pj0HelRa5bD8Cjt879FNUVKzIx
+
+OAuth 2.0 Client ID and Client Secret
+Client ID=U1dtckJWV1NCQVNfSmVPN2ltOUI6MTpjaQ
+Client Secret=Zxmi65yCvIDOoWMQTZNwuKDL9pFV_pNHnDlLO0CSEXZdqFLzKh
+
+# App Configuration
+APP_NAME=SocialCog.io
+NODE_ENV=development
+PORT=3000
+
+
+#LinkedIn App Credentials
+Client ID=77peltrzvu82tv
+Primary Client Secret=WPL_AP1.q4CKIQBWKZG0EEAo.HsaUQw==
+Secondary Client Secret=WPL_AP1.CuilmQIEYX8rqNVG.ma31Bg==
+
+LINKEDIN_REDIRECT_URI=http://localhost:3000/auth/linkedin/callback
+LINKEDIN_REDIRECT_URI=http://localhost:3001/auth/linkedin/callback
+LINKEDIN_REDIRECT_URI=https://localhost:3000/auth/linkedin/callback
+LINKEDIN_REDIRECT_URI=https://localhost:3001/auth/linkedin/callback
+
+# Add these to your .env (with real values later in Production)
+
+LINKEDIN_REDIRECT_URI=https://yourdomain.com/auth/linkedin/callback
+SESSION_SECRET=your_session_secret_different_from_jwt
+
+JWT_SECRET=***REDACTED_BY_SCRIPT***
+ENCRYPTION_KEY=62b575c139b4d89170b781ca7f5fe98a45e3ed51d753b3c0d4570c163e5c83a6
+ENCRYPTION_KEY=a2a28da0b09326dc6bdb3e318322041e3088fa8a758ee5b26ed6e6fea8278ab8
+JWT_SECRET=***REDACTED_BY_SCRIPT***
+JWT_SECRET=***REDACTED_BY_SCRIPT***
+ENCRYPTION_KEY=4baef43fbbd57e6da40bb61f3600927d7b411ec12957ebf9e282d433ff5513cb
+
