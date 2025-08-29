@@ -1,0 +1,147 @@
+// Enhanced Mock Twitter Service with realistic data
+class MockTwitterService {
+  constructor() {
+    this.mockUsers = {
+      elonmusk: {
+        id: "44196397",
+        username: "elonmusk",
+        name: "Elon Musk",
+        platform: "twitter",
+        followers: 155420000 + Math.floor(Math.random() * 10000),
+        following: 343 + Math.floor(Math.random() * 50),
+        posts: 28500 + Math.floor(Math.random() * 100),
+        bio: "CTO @SpaceX, CEO @Tesla, Owner @X",
+        verified: true,
+        profile_url: "https://twitter.com/elonmusk",
+        created_at: "2009-06-02T20:12:29.000Z"
+      },
+      jack: {
+        id: "12",
+        username: "jack",
+        name: "jack",
+        platform: "twitter",
+        followers: 6800000 + Math.floor(Math.random() * 10000),
+        following: 1890 + Math.floor(Math.random() * 50),
+        posts: 32100 + Math.floor(Math.random() * 100),
+        bio: "🌍🌏🌎",
+        verified: true,
+        profile_url: "https://twitter.com/jack",
+        created_at: "2006-03-21T20:50:14.000Z"
+      },
+      naval: {
+        id: "745273",
+        username: "naval",
+        name: "Naval",
+        platform: "twitter",
+        followers: 2100000 + Math.floor(Math.random() * 10000),
+        following: 0,
+        posts: 18900 + Math.floor(Math.random() * 100),
+        bio: "Entrepreneur and angel investor",
+        verified: true,
+        profile_url: "https://twitter.com/naval",
+        created_at: "2007-02-03T04:28:36.000Z"
+      },
+      sundarpichai: {
+        id: "14245645",
+        username: "sundarpichai",
+        name: "Sundar Pichai",
+        platform: "twitter",
+        followers: 5200000 + Math.floor(Math.random() * 10000),
+        following: 456 + Math.floor(Math.random() * 50),
+        posts: 1200 + Math.floor(Math.random() * 100),
+        bio: "CEO @Google @Alphabet",
+        verified: true,
+        profile_url: "https://twitter.com/sundarpichai",
+        created_at: "2009-03-24T21:23:23.000Z"
+      }
+    };
+  }
+
+  async testConnection() {
+    console.log('Using Mock Twitter Data (API credentials not working)');
+    return true;
+  }
+
+  async getUserProfile(username) {
+    await new Promise(resolve => setTimeout(resolve, 500 + Math.random() * 1000));
+
+    const lowerUsername = username.toLowerCase();
+    
+    if (this.mockUsers[lowerUsername]) {
+      const user = { ...this.mockUsers[lowerUsername] };
+      
+      user.followers += Math.floor(Math.random() * 1000) - 500;
+      user.following += Math.floor(Math.random() * 10) - 5;
+      user.posts += Math.floor(Math.random() * 5);
+      user.updated_at = new Date().toISOString();
+      
+      console.log(`Mock Twitter: Fetched profile for @\${username}`);
+      return user;
+    }
+
+    const mockUser = {
+      id: Math.floor(Math.random() * 1000000000).toString(),
+      username: username,
+      name: username.charAt(0).toUpperCase() + username.slice(1),
+      platform: "twitter",
+      followers: Math.floor(Math.random() * 100000) + 1000,
+      following: Math.floor(Math.random() * 2000) + 100,
+      posts: Math.floor(Math.random() * 10000) + 500,
+      bio: `Mock profile for @\${username}`,
+      verified: Math.random() > 0.8,
+      profile_url: `https://twitter.com/\${username}`,
+      created_at: new Date(Date.now() - Math.random() * 1000 * 60 * 60 * 24 * 365 * 10).toISOString(),
+      updated_at: new Date().toISOString()
+    };
+
+    console.log(`Mock Twitter: Generated profile for @\${username}`);
+    return mockUser;
+  }
+
+  async getUserFollowers(userId, maxResults = 100) {
+    await new Promise(resolve => setTimeout(resolve, 800));
+    
+    const mockFollowers = [];
+    const count = Math.min(maxResults, Math.floor(Math.random() * 50) + 10);
+    
+    for (let i = 0; i < count; i++) {
+      mockFollowers.push({
+        id: Math.floor(Math.random() * 1000000000).toString(),
+        username: `user_\${i}_\${Math.floor(Math.random() * 1000)}`,
+        public_metrics: {
+          followers_count: Math.floor(Math.random() * 10000)
+        }
+      });
+    }
+    
+    console.log(`Mock Twitter: Generated \${mockFollowers.length} followers for user \${userId}`);
+    return mockFollowers;
+  }
+
+  async findMutualConnections(userIds) {
+    await new Promise(resolve => setTimeout(resolve, 1200));
+    
+    const connections = [];
+    
+    for (let i = 0; i < userIds.length; i++) {
+      for (let j = i + 1; j < userIds.length; j++) {
+        if (Math.random() > 0.6) {
+          const mutualCount = Math.floor(Math.random() * 50) + 5;
+          
+          connections.push({
+            source_id: userIds[i],
+            target_id: userIds[j],
+            connection_strength: Math.min(mutualCount / 30, 1),
+            connection_type: "mutual_followers",
+            mutual_count: mutualCount,
+          });
+        }
+      }
+    }
+    
+    console.log(`Mock Twitter: Found \${connections.length} mutual connections`);
+    return connections;
+  }
+}
+
+module.exports = new MockTwitterService();
