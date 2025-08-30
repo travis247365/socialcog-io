@@ -6,3 +6,17 @@
 
 # macOS specific
 .DS_Store
+
+# Temporary development files
+fix_my_project.sh
+setup-all.sh
+server/debug-fix.sh
+server/server.js.backup
+server/logs/
+
+# Temporary development files
+fix_my_project.sh
+setup-all.sh
+server/debug-fix.sh
+server/server.js.backup
+server/logs/
